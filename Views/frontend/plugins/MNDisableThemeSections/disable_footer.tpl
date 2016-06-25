@@ -1,4 +1,4 @@
-{* Footer Funktionen *}	
+{* Footer Functions *}	
 
 	{block name='frontend_index_footer_menu'}
 		{if $footer == "footery"}
