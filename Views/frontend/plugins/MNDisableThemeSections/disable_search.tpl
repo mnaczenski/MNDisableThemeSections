@@ -1,4 +1,4 @@
-{* Suche ausblenden *}	
+{* Disable Search *}	
 
 	{block name='frontend_index_search_container'}
 		{if $search == searchy} 
