@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * Disable Theme Sections
  * @author Moritz Naczenski
@@ -57,6 +58,7 @@
 			  $args->getSubject()->View()->extendsTemplate('frontend/plugins/MNDisableThemeSections/disable_footer.tpl');
 			  
 			  $view->assign('showcms', $this->Config()->get('showcms'));
+        $args->getSubject()->View()->extendsTemplate('frontend/plugins/MNDisableThemeSections/display_categorytext.tpl');
 	}
 
 
@@ -137,7 +139,7 @@
 	    /** Kategorietext Konfiguration **/
     	 $this->Form()->setElement('select', 'showcms', 
         	array(
-        		'label' => 'Kategorietxt', 
+        		'label' => 'Kategorietext', 
             	'store' => array(
                 	array(cmstextafteremotion, 'Kategorietext nach Einkaufswelt anzeigen'), 
                 	array(cmstextbeforeemotion, 'Kategorietext vor Einkaufswelt anzeigen'), 
