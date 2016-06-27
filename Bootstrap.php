@@ -60,6 +60,11 @@
 
 		/** display category images on listings **/
 		$view->assign('showcategoryimageinblog', $this->Config()->get('showcategoryimageinblog'));
+
+		/** display shoppingworlds in blog */
+		$view->assign('showblogemotion', $this->Config()->get('showblogemotion'));
+		$view->assign('emotionidforblog', $this->Config()->get('emotionidforblog'));
+
 	}
 
 
@@ -139,6 +144,27 @@
 			)
 		);
 
+		/** "show category image" configuration **/
+		$this->Form()->setElement('select', 'showblogemotion',
+			array(
+				'label' => 'Einkaufswelt im Blog anzeigen?',
+				'store' => array(
+					array(showblogemotiony, 'Ja'),
+					array(showblogemotionn, 'Nein'),
+				),
+				'value' => showblogemotionn,
+			)
+		);
+
+		/** "show category image" configuration **/
+		$this->Form()->setElement('number', 'emotionidforblog',
+			array(
+				'label' => 'EmotionID für den Blog',
+				'minValue' => 0,
+				'value' => 0,
+			)
+		);
+
 		$this->addFormTranslations(
 			array(
 				'en_GB' => array(
@@ -162,6 +188,12 @@
 					),
 					'showcategoryimageinblog' => array(
 						'label' => 'Show categoryimange in blogs?'
+					),
+					'showblogemotion' => array(
+						'label' => 'Show shopping worlds in blogs?'
+					),
+					'emotionidforblog' => array(
+						'label' => 'EmotionID for blog'
 					),
 				)
 			)

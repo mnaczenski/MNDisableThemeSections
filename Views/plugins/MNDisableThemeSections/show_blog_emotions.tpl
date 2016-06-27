@@ -1,4 +1,5 @@
-
-<div>
-    {action module=widgets controller=emotion action=index emotionId=7 controllerName=listing}
-</div>
+<p>
+    <div>
+        {action module=widgets controller=emotion action=index emotionId={$emotionidforblog} controllerName=listing}
+    </div>
+</p>
