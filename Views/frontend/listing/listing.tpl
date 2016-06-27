@@ -11,3 +11,9 @@
         {include file='frontend/listing/text.tpl'}
     {/if}
 {/block}
+
+{block name="frontend_listing_listing_wrapper" prepend}
+    {if $showcategoryimage == "showcategoryimagey"}
+        {include file='plugins/MNDisableThemeSections/show_category_image.tpl'}
+    {/if}
+{/block}

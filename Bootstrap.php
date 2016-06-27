@@ -54,6 +54,9 @@
 
 		/** display category text on shopping worlds **/
   		$view->assign('showcms', $this->Config()->get('showcms'));
+
+		/** display category images on listings **/
+		$view->assign('showcategoryimage', $this->Config()->get('showcategoryimage'));
 	}
 
 
@@ -109,6 +112,18 @@
 				)
 		 );
 
+		/** "show category image" configuration **/
+		$this->Form()->setElement('select', 'showcategoryimage',
+			array(
+				'label' => 'Kategoriebild anzeigen?',
+				'store' => array(
+					array(showcategoryimagey, 'Ja'),
+					array(showcategoryimagen, 'Nein'),
+				),
+				'value' => showcategoryimagen,
+			)
+		);
+
 		$this->addFormTranslations(
 			array(
 				'en_GB' => array(
@@ -126,6 +141,9 @@
 					),
 					'showcms' => array(
 						'label' => 'Show categorytext on shopping worlds?'
+					),
+					'showcategoryimage' => array(
+						'label' => 'Show categoryimange in listings?'
 					)
 				)
 			)

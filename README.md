@@ -7,3 +7,4 @@ The following theme parts can be changed:
 - Display footer y/n
 - Display copyright hint in footer y/n
 - Decide whether the category-text should be displayed before or after the shopping worlds
+- show category images in listings
