@@ -57,6 +57,9 @@
 
 		/** display category images on listings **/
 		$view->assign('showcategoryimage', $this->Config()->get('showcategoryimage'));
+
+		/** display category images on listings **/
+		$view->assign('showcategoryimageinblog', $this->Config()->get('showcategoryimageinblog'));
 	}
 
 
@@ -124,6 +127,18 @@
 			)
 		);
 
+		/** "show category image" configuration **/
+		$this->Form()->setElement('select', 'showcategoryimageinblog',
+			array(
+				'label' => 'Kategoriebild im Blog anzeigen?',
+				'store' => array(
+					array(showcategoryimageinblogy, 'Ja'),
+					array(showcategoryimageinblogn, 'Nein'),
+				),
+				'value' => showcategoryimageinblogn,
+			)
+		);
+
 		$this->addFormTranslations(
 			array(
 				'en_GB' => array(
@@ -144,7 +159,10 @@
 					),
 					'showcategoryimage' => array(
 						'label' => 'Show categoryimange in listings?'
-					)
+					),
+					'showcategoryimageinblog' => array(
+						'label' => 'Show categoryimange in blogs?'
+					),
 				)
 			)
 		);

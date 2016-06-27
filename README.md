@@ -8,3 +8,4 @@ The following theme parts can be changed:
 - Display copyright hint in footer y/n
 - Decide whether the category-text should be displayed before or after the shopping worlds
 - show category images in listings
+- show category imanges in blog categories
