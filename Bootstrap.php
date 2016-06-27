@@ -38,21 +38,21 @@
 		/** @var \Enlight_Controller_Action $controller */
 		$controller = $args->get('subject');
 
-
+		/** Add Template directory */
 		$view = $controller->View();
 		$view->addTemplateDir(
 		__DIR__ . '/Views'
 		);
 		
 
-		/** Suche ausblenden **/
+		/** disable search  **/
 		$view->assign('search', $this->Config()->get('search'));
 
-		/** Footer anpassen **/
+		/** disable footer and copyright **/
 		$view->assign('copyright', $this->Config()->get('copyright'));
 		$view->assign('footer', $this->Config()->get('footer'));
 
-		/** Kategorietext anpassen **/
+		/** display category text on shopping worlds **/
   		$view->assign('showcms', $this->Config()->get('showcms'));
 	}
 
@@ -60,7 +60,7 @@
 	private function createConfig()
 	{
 
-		/** Suche Konfiguration **/
+		/** "disable search" configuration **/
 		 $this->Form()->setElement('select', 'search',
 			array(
 				'label' => 'Suche ausblenden?',
@@ -72,7 +72,7 @@
 				)
 		 );
 
-		/** Copyright Konfiguration **/
+		/** "disable copyright" configuration **/
 		 $this->Form()->setElement('select', 'copyright',
 			array(
 				'label' => 'Copyright ausblenden?',
@@ -84,7 +84,7 @@
 				)
 		 );
 
-		/** Footer Konfiguration **/
+		/** "disable footer" configuration **/
 		 $this->Form()->setElement('select', 'footer',
 			array(
 				'label' => 'Footer ausblenden?',
@@ -96,18 +96,43 @@
 				)
 		 );
 
-			/** Kategorietext Konfiguration **/
-			 $this->Form()->setElement('select', 'showcms',
-				array(
-					'label' => 'Kategorietext',
-					'store' => array(
-						array(cmstextafteremotion, 'Kategorietext nach Einkaufswelt anzeigen'),
-						array(cmstextbeforeemotion, 'Kategorietext vor Einkaufswelt anzeigen'),
-						array(cmstextdisable, 'Kategorietext nicht bei Einkaufswelten anzeigen')
+		/** display categorytext on shopping worlds **/
+		 $this->Form()->setElement('select', 'showcms',
+			array(
+				'label' => 'Kategorietext',
+				'store' => array(
+					array(cmstextafteremotion, 'Kategorietext nach Einkaufswelt anzeigen'),
+					array(cmstextbeforeemotion, 'Kategorietext vor Einkaufswelt anzeigen'),
+					array(cmstextdisable, 'Kategorietext nicht bei Einkaufswelten anzeigen')
+				),
+				'value' => cmstextdisable,
+				)
+		 );
+
+		$this->addFormTranslations(
+			array(
+				'en_GB' => array(
+					'plugin_form' => array(
+						'label' => 'Disable Theme Sections'
 					),
-					'value' => cmstextdisable,
-        			)
-			 );
+					'search' => array(
+						'label' => 'Display search in header?'
+					),
+					'copyright' => array(
+						'label' => 'Display copyright in footer?'
+					),
+					'footer' => array(
+						'label' => 'Display footer?'
+					),
+					'showcms' => array(
+						'label' => 'Show categorytext on shopping worlds?'
+					)
+				)
+			)
+		);
+
+
+
 	}
 }
 ?>
